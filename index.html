@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>VerduSys</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-view" class="login-container">
+    <div class="login-box">
+
+        <img src="https://ichef.bbci.co.uk/ace/ws/624/amz/worldservice/live/assets/images/2015/11/24/151124121850_planta_624x351_thinkstock_nocredit.jpg.webp"
+             alt="Agricultura" class="login-img">
+
+        <h1>VerduSys</h1>
+        <p>Sistema de Gestión de Inventario</p>
+
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="password" placeholder="Contraseña">
+        <button onclick="login()">Ingresar</button>
+    </div>
+</div>
+
+<!-- APP -->
+<div id="app-view" class="hidden">
+
+    <aside class="sidebar">
+        <h2>🌱 VerduSys</h2>
+        <ul>
+            <li onclick="mostrar('inicio')">🏠 Inicio</li>
+            <li onclick="mostrar('inventario')">📦 Inventario</li>
+            <li onclick="mostrar('entradas')">📥 Entradas</li>
+            <li onclick="mostrar('salidas')">📤 Salidas</li>
+            <li onclick="logout()">🚪 Cerrar sesión</li>
+        </ul>
+    </aside>
+
+    <main class="content">
+
+        <!-- DASHBOARD -->
+        <section id="inicio" class="vista">
+            <h2>Dashboard</h2>
+
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Productos</h3>
+                    <p id="total">0</p>
+                </div>
+
+                <div class="card alerta">
+                    <h3>Bajo Stock</h3>
+                    <p id="bajoStock">0</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- INVENTARIO -->
+        <section id="inventario" class="vista hidden">
+            <h2>Inventario</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaProductos"></tbody>
+            </table>
+        </section>
+
+        <!-- ENTRADAS -->
+        <section id="entradas" class="vista hidden">
+            <h2>Registrar Entrada</h2>
+
+            <input type="text" id="productoEntrada" placeholder="Producto">
+            <input type="number" id="cantidadEntrada" placeholder="Cantidad">
+            <button onclick="entrada()">Guardar Entrada</button>
+        </section>
+
+        <!-- SALIDAS -->
+        <section id="salidas" class="vista hidden">
+            <h2>Registrar Salida</h2>
+
+            <input type="text" id="productoSalida" placeholder="Producto">
+            <input type="number" id="cantidadSalida" placeholder="Cantidad">
+            <button onclick="salida()">Guardar Salida</button>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
